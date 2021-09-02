@@ -11,28 +11,28 @@
 </template>
 
 <script>
-  import EventCard from '@/components/EventCard.vue'
-  export default {
-    head() {
+import EventCard from '@/components/EventCard.vue'
+export default {
+  components: {
+    EventCard,
+  },
+  async asyncData({ $axios, error }) {
+    try {
+      const { data } = await $axios.get('http://localhost:3000/events')
       return {
-        title: 'Event Listing',
+        events: data,
       }
-    },
-    async asyncData({ $axios, error }) {
-      try {
-        const { data } = await $axios.get('http://localhost:3000/events')
-        return {
-          events: data
-        }
-      } catch(e) {
-        error({
-          statusCode: 503,
-          message: 'Unable to fetch events at this time. Please try again.'
-        })
-      }
-    },
-    components: {
-      EventCard
+    } catch (e) {
+      error({
+        statusCode: 503,
+        message: 'Unable to fetch events at this time. Please try again.',
+      })
     }
-  }
+  },
+  head() {
+    return {
+      title: 'Event Listing',
+    }
+  },
+}
 </script>

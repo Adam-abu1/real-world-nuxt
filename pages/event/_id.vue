@@ -20,16 +20,18 @@ export default {
 
   async asyncData({ $axios, error, params }) {
     try {
-      const { data } = await $axios.get('http://localhost:3000/events/' + params.id)
+      const { data } = await $axios.get(
+        'http://localhost:3000/events/' + params.id
+      )
       return {
-        event: data
+        event: data,
       }
-    } catch(e) {
+    } catch (e) {
       error({
         statusCode: 503,
-        message: 'Unable to fetch event#' +  params.id
+        message: 'Unable to fetch event#' + params.id,
       })
     }
-  }
+  },
 }
 </script>

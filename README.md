@@ -6,7 +6,10 @@
 # install dependencies
 $ npm install
 
-# serve with hot reload at localhost:3000.
+# run the mock api for request (ensure it defaults to port 3000)
+$ json-server --watch db.json --port 3000
+
+# serve with hot reload at localhost:3001.
 $ npm run dev
 # prepend this with port definition is dummy api server is running
 $ PORT=**** npm run dev

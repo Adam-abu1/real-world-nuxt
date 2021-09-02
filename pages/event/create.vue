@@ -12,10 +12,10 @@ export default {
         {
           hid: 'description',
           name: 'description',
-          content: 'You can create an new event in your neighborhood'
-        }
-      ]
+          content: 'You can create an new event in your neighborhood',
+        },
+      ],
     }
-  }
+  },
 }
 </script>
