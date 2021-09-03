@@ -13,7 +13,10 @@
 export default {
   name: 'EventCard',
   props: {
-    event: Object,
+    event: {
+      type: Object,
+      default: () => {},
+    },
   },
   computed: {
     parsedDate() {
